@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "outDir": "./dist",
+    "declaration": false,
+    "jsx": "react",
+    "lib": ["es2017", "dom"],
+    "types": ["react"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "allowJs": false,
+    "sourceMap": true,
+    "removeComments": false,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": false,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "strict": true,
+    "esModuleInterop": true
+  },
+  "exclude": ["node_modules", "src/**/*.test.ts", "src/client/**/*.stories.ts"],
+  "include": ["src/**/*"]
+}
