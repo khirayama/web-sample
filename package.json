@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "11.14.0",
+    "npm": "6.7.0"
+  },
   "scripts": {
     "clean": "rm -rf dist",
     "start": "npm run clean && concurrently 'npm run server:dev' 'npm run bundle:scripts:watch'",
