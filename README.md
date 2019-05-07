@@ -4,8 +4,8 @@ It is a sample for web application with recent tech stacks. I want to keep makin
 
 ![Screen Shot](./docs/screenshot.gif)
 
-- Home page(`/`) supports full Server Side Rendering.
-- About page(`/about`) and Users page(`/users`) support dynamic(lazy) import.
+- Home page(`/`) supports full Server Side Rendering(SSR).
+- About page(`/about`) and Users page(`/users`) support dynamic(lazy) import. It do SSR for App Shell part but doesn't support SSR with contents area.
 
 ## Stacks
 
@@ -22,7 +22,7 @@ It is a sample for web application with recent tech stacks. I want to keep makin
   - typescript
   - eslint
   - prettier
-- Features
+- App Features
   - Server Side Rendering
   - i18n
   - Code Splitting
@@ -52,18 +52,17 @@ $ npm run server
 - Optimize code splitting
 - Setting up jest for snapshot tests
 
-## Architecture Hints and Rules
+## Architecture Direction and Rules for Presentation Layer
 
-It is opinionated rules. Actually, you know it is really difficult to define your rules for user interface.
+It is really opinionated rules about presentation layer. Actually, you know it is really difficult to define your rules for presentation layer.
 
-- About Presentations
-  - Use routes from `presentations/templates`
-    - It is for smooth transition. If you use templates in pages or other layers, you will get blink with dynamic import.
-    - templates is like `AppShell`.
-  - Use head from `presentations/pages`
-  - Not use pages from `containers` and use pages from `routes`
-  - Define async or not in `routes`
-    - That means using `@loadable/components` in routes, not in pages
+- Use routes from `presentations/templates`
+  - It is for smooth transition. If you use templates in pages or other layers, you will get a blink of App Shell part like navigation bar during transition with dynamic import.
+  - templates is kind of like `App Shell`.
+- Use head from `presentations/pages`
+- Not use pages from `containers` and use pages from `routes`
+- Define dynamic import or not in `routes`
+  - That means using `@loadable/components` in routes, not in pages
 
 ## Why I do so / Why I don't do so
 
@@ -96,3 +95,5 @@ A. It is too slow for development.
   - [Comparison with React.lazy - Loadable Components](https://www.smooth-code.com/open-source/loadable-components/docs/loadable-vs-react-lazy/)
     - ReactDOM.renderToString doesn't support React.lazy. So, we can not do SSR with React.lazy now. But @loadable/component needs @loadable/babel-plugin. But it doesn't support typescript. If you want to do SSR on server with `@loadable/component` and typescript, you have to use babel with typescript.
     - Watch React.lazy on server side and loadable/component support typescript.
+- App Shell
+  - [The App Shell Model  |  Web Fundamentals  |  Google Developers](https://developers.google.com/web/fundamentals/architecture/app-shell)
