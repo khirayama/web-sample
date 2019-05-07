@@ -50,6 +50,7 @@ $ npm run server
 - Make dev evn faster
   - Support Hot Module Replacement
 - Optimize code splitting
+- Setting up jest for snapshot tests
 
 ## Architecture Hints and Rules
 
@@ -63,6 +64,17 @@ It is opinionated rules. Actually, you know it is really difficult to define you
   - Not use pages from `containers` and use pages from `routes`
   - Define async or not in `routes`
     - That means using `@loadable/components` in routes, not in pages
+
+## Why I do so / Why I don't do so
+
+Q. Why don't I use Atomic Design?  
+A. Actually, it is really difficult to categorize component. If your team still have solid design system or a team that has only engineers, it is good sign to use Atomic Design. But if you have to say no, it is bad sign to do so. Some ideas about design like OOUI have many models like implementation model, meta model, expression model and so on. I can not make sure which component is atoms, which component is molecules, which component is organisms.  
+
+Q. Why don't I do server side rendering with dynamic import?  
+A. `@loadable/component` needs [babel plugin](https://www.smooth-code.com/open-source/loadable-components/docs/server-side-rendering/) to do server side rendering. If I do it, I need to install and set up babel with typescript. Actually, it got easy. But I think it is too much. If you need to support server side rendering for SEO, please use babel plugin or stop to use dynamic import for target pages.  
+
+Q. Why don't I use `ts-node` for development?  
+A. It is too slow for development.  
 
 ## Refs
 
