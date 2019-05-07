@@ -53,6 +53,8 @@ $ npm run server
 
 ## Architecture Hints and Rules
 
+It is opinionated rules. Actually, you know it is really difficult to define your rules for user interface.
+
 - About Presentations
   - Use routes from `presentations/templates`
     - It is for smooth transition. If you use templates in pages or other layers, you will get blink with dynamic import.
