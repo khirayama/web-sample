@@ -52,7 +52,8 @@
     "typescript": "3.4.5",
     "webpack": "4.30.0",
     "webpack-bundle-analyzer": "3.3.2",
-    "webpack-cli": "3.3.2"
+    "webpack-cli": "3.3.2",
+    "webpack-manifest-plugin": "2.0.4"
   },
   "dependencies": {
     "@loadable/component": "5.9.0",
