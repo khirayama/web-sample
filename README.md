@@ -52,18 +52,6 @@ $ npm run server
 - Optimize code splitting
 - Setting up jest for snapshot tests
 
-## Architecture Direction and Rules for Presentation Layer
-
-It is really opinionated rules about presentation layer. Actually, you know it is really difficult to define your rules for presentation layer. It is just idea that I met when I try to do SSR and dynamic import. I want you to put high priority to team direction or general rules.
-
-- Use routes from `presentations/templates`
-  - It is for smooth transition. If you use templates in pages or other layers, you will get a blink of App Shell part like navigation bar during transition with dynamic import.
-  - templates is kind of like `App Shell`.
-- Use head from `presentations/pages`
-- Not use pages from `containers` and use pages from `routes`
-- Define dynamic import or not in `routes`
-  - That means using `@loadable/components` in routes, not in pages
-
 ## Why I do so / Why I don't do so
 
 Q. Why don't I use Atomic Design?  
