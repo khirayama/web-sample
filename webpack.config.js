@@ -2,19 +2,22 @@
 const path = require('path');
 
 const webpack = require('webpack');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const WebpackManifestPlugin = require('webpack-manifest-plugin');
+const WebpackBundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const NODE_ENV = process.env.NODE_ENV;
 
 module.exports = (env, argv) => {
+  const isProd = argv.mode === 'production';
+
   const config = {
     entry: {
       index: path.resolve('src', 'client', 'index.tsx'),
     },
     output: {
-      filename: '[name].bundle.js',
-      chunkFilename: '[name].chunk.js',
+      filename: '[name].[contenthash].bundle.js',
+      chunkFilename: '[name].[contenthash].chunk.js',
       path: path.resolve('dist', 'public'),
       publicPath: '/public/',
     },
@@ -32,23 +35,24 @@ module.exports = (env, argv) => {
           NODE_ENV: process.env.NODE_ENV,
         }),
       }),
+      new WebpackManifestPlugin(),
     ],
     optimization: {
-      minimize: argv.mode === 'production',
-      // splitChunks: {
-      //   minSize: 100000,
-      //   maxSize: 1500000,
-      //   name: 'dist/public/commons',
-      //   chunks: 'all',
-      //   cacheGroups: {
-      //     vendors: {
-      //       test: /node_modules/,
-      //       name: 'vendors',
-      //       chunks: 'all',
-      //       enforce: true,
-      //     },
-      //   },
-      // },
+      minimize: isProd,
+      splitChunks: {
+        minSize: 100000,
+        maxSize: 1500000,
+        name: 'dist/public/commons',
+        chunks: 'all',
+        cacheGroups: {
+          vendors: {
+            test: /node_modules/,
+            name: 'vendors',
+            chunks: 'all',
+            enforce: true,
+          },
+        },
+      },
     },
     module: {
       rules: [
@@ -63,19 +67,12 @@ module.exports = (env, argv) => {
         },
       ],
     },
+    devtool: isProd ? null : 'inline-source-map',
   };
 
-  if (NODE_ENV === 'production') {
-    console.log(`Building as production...`);
-    config.optimization.minimize = true;
-
-    if (process.env.ANALYSIS === 'true') {
-      console.log(`Building for analyze...`);
-      config.plugins.push(new BundleAnalyzerPlugin());
-    }
-  } else {
-    console.log('Building as development...');
-    config.devtool = 'inline-source-map';
+  if (process.env.ANALYSIS === 'true') {
+    console.log(`Building for analyze...`);
+    config.plugins.push(new WebpackBundleAnalyzerPlugin());
   }
   return config;
 };
