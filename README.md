@@ -49,7 +49,6 @@ $ npm run server
 
 - Make dev evn faster
   - Support Hot Module Replacement
-- Optimize code splitting
 - Setting up jest for snapshot tests
 
 ## Why I do so / Why I don't do so
