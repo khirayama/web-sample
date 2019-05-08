@@ -1,4 +1,5 @@
 type Params = {
+  locale: 'en' | 'ja';
   meta: string;
   assets: Array<string>;
   body: string;
@@ -16,9 +17,9 @@ const escape = (str: string) => {
     .replace(/>/g, '&gt;');
 };
 
-export const renderFullPage = ({ meta, assets, body, style, scripts, preloadedState }: Params) => {
+export const renderFullPage = ({ locale, meta, assets, body, style, scripts, preloadedState }: Params) => {
   return `<!DOCTYPE html>
-    <html>
+    <html lang=${locale}>
       <head>
         ${meta}
         ${style}

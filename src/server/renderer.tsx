@@ -47,6 +47,7 @@ export function get(req: express.Request, res: express.Response) {
 
   res.send(
     renderFullPage({
+      locale,
       meta,
       assets,
       body,
