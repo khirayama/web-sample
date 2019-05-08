@@ -15,6 +15,20 @@ import { ResetStyle } from 'client/presentations/styles/ResetStyle';
 import { GlobalStyle } from 'client/presentations/styles/GlobalStyle';
 import { chooseLocale } from 'client/presentations/locales';
 
+const assets = (() => {
+  // eslint-disable-next-line node/no-unpublished-require
+  const manifest: { [key: string]: string } = require('../../dist/public/manifest');
+  const entryPoints: string[] = [];
+
+  for (const [key, value] of Object.entries(manifest)) {
+    if (/^index|^vendors|^commons/.test(key)) {
+      entryPoints.push(value);
+    }
+  }
+
+  return entryPoints;
+})();
+
 export function get(req: express.Request, res: express.Response) {
   const context = {};
   const store = createStore(reducer);
@@ -41,9 +55,6 @@ export function get(req: express.Request, res: express.Response) {
       ${helmetContent.link.toString()}
     `.trim();
   const style = sheet.getStyleTags();
-  // TODO: script file name;
-  const scripts = `<script src="/public/index.bundle.js"></script>`;
-  const assets = [''];
 
   res.send(
     renderFullPage({
@@ -52,7 +63,6 @@ export function get(req: express.Request, res: express.Response) {
       assets,
       body,
       style,
-      scripts,
       preloadedState: JSON.stringify(preloadedState),
     }),
   );

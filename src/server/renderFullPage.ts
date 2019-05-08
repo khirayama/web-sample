@@ -4,7 +4,6 @@ type Params = {
   assets: Array<string>;
   body: string;
   style: string;
-  scripts: string;
   preloadedState: string;
 };
 
@@ -17,7 +16,7 @@ const escape = (str: string) => {
     .replace(/>/g, '&gt;');
 };
 
-export const renderFullPage = ({ locale, meta, assets, body, style, scripts, preloadedState }: Params) => {
+export const renderFullPage = ({ locale, meta, assets, body, style, preloadedState }: Params) => {
   return `<!DOCTYPE html>
     <html lang=${locale}>
       <head>
@@ -27,7 +26,6 @@ export const renderFullPage = ({ locale, meta, assets, body, style, scripts, pre
       <body>
         <div id="root">${body}</div>
         <script id="initial-data" type="text/plain" data-json="${escape(preloadedState)}"></script>
-        ${scripts}
         ${assets.map(asset => `<script src=${asset}></script>`).join('\n')}
       </body>
     </html>
