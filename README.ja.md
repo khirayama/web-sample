@@ -54,13 +54,13 @@ $ npm run server
 
 ## なぜそうしたか / なぜしなかったか
 
-Q. なぜAtomic Designを使わないのか。  
+Q. *なぜAtomic Designを使わないのか。*  
 A. 実のところ、コンポーネントをカテゴリ分けするのは非常に難しいと思います。あなたのチームがすでにしっかりとしてデザインシステムがあったりエンジニアだけのチームの場合、Atomic Designを導入するのによい兆候と言えます。しかし、もし違うなら難しいでしょう。OOUIなどのデザインは実装モデル、認知モデル、表現モデルなどいくつかのモデルがあります。どのモデルで考えるかによって、atomsなのか、moleculesなのか、organismsになのか、判断はとても難しくなります。  
 
-Q. なぜダイナミックインポートにはSSRしないのか。  
-A. `@loadable/component` がSSRするには [babel plugin](https://www.smooth-code.com/open-source/loadable-components/docs/server-side-rendering/) が必要です。もしそれをするならtypescriptをbabelを用いて使う必要があるでしょう。実際、それは簡単に行えるようになりました。しかし、個人的にはそれはちょっとやるすぎかなという印象があり避けました。SEO上の問題でその必要があれば、対象ページのダイナミックインポートを止めるのがシンプルに思えます。  
+Q. *なぜダイナミックインポートにはSSRしないのか。*  
+A. `@loadable/component` がSSRするには [babel plugin](https://www.smooth-code.com/open-source/loadable-components/docs/server-side-rendering/) が必要です。もしそれをするならtypescriptをbabelを用いて使う必要があるでしょう。実際、それは簡単に行えるようになりました。しかし、個人的にはそれはちょっとやるすぎかなという印象があり避けました。SEO上の問題でその必要があれば、対象ページのダイナミックインポートを止めるのがシンプルに思えます。それに加え、マルチトランスパイルは不要なコード削除のような最適化を難しくするようにも思えます。  
 
-Q. なぜ開発環境に `ts-node` を利用しないのか。  
+Q. *なぜ開発環境に `ts-node` を利用しないのか。*  
 A. 開発には遅すぎました。  
 
 ## Refs
