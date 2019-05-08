@@ -6,8 +6,6 @@ const WebpackManifestPlugin = require('webpack-manifest-plugin');
 const WebpackBundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
-const NODE_ENV = process.env.NODE_ENV;
-
 module.exports = (env, argv) => {
   const isProd = argv.mode === 'production';
 
