@@ -6,25 +6,34 @@ import * as styled from 'styled-components';
 import ReactHelmet from 'react-helmet';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import { IntlProvider } from 'react-intl';
 
 import { reducer } from 'client/reducers';
 import { renderFullPage } from 'server/renderFullPage';
-import { Application } from 'client/containers/Application';
+import { Routes } from 'client/presentations/routes/Routes';
+import { ResetStyle } from 'client/presentations/styles/ResetStyle';
+import { GlobalStyle } from 'client/presentations/styles/GlobalStyle';
+import { chooseLocale } from 'client/presentations/locales';
 
 export function get(req: express.Request, res: express.Response) {
   const context = {};
   const store = createStore(reducer);
+  const preloadedState = store.getState();
   const sheet = new styled.ServerStyleSheet();
+  const locale = preloadedState.ui.locale;
   const body = ReactDOMServer.renderToString(
     sheet.collectStyles(
       <StaticRouter location={req.url} context={context}>
-        <Provider store={store}>
-          <Application />
-        </Provider>
+        <ResetStyle />
+        <GlobalStyle />
+        <IntlProvider locale={locale} messages={chooseLocale(locale)}>
+          <Provider store={store}>
+            <Routes />
+          </Provider>
+        </IntlProvider>
       </StaticRouter>,
     ),
   );
-  const preloadedState = store.getState();
   const helmetContent = ReactHelmet.renderStatic();
   const meta = `
       ${helmetContent.meta.toString()}

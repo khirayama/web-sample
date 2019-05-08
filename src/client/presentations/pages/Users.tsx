@@ -1,13 +1,16 @@
 import * as React from 'react';
-import * as styled from 'styled-components';
 import { injectIntl } from 'react-intl';
+import loadable from '@loadable/component';
 
-import { Counter } from 'client/containers/Counter';
 import { Head } from 'client/presentations/head/Head';
+import { Application } from 'client/presentations/templates/Application';
 
-const Wrapper = styled.default.div`
-  color: green;
-`;
+const LoadableUsersContent = loadable(
+  (): any =>
+    import(/* webpackChunkName: "users" */ 'client/presentations/pages/UsersContent').then(
+      ({ UsersContent }) => UsersContent,
+    ),
+);
 
 export const Users = injectIntl(function(props) {
   const title: string = props.intl.formatMessage({ id: 'Users.Title' });
@@ -16,12 +19,9 @@ export const Users = injectIntl(function(props) {
   });
 
   return (
-    <>
+    <Application>
       <Head title={title} description={description} />
-      <Wrapper>
-        <h2>Users</h2>
-        <Counter />
-      </Wrapper>
-    </>
+      <LoadableUsersContent />
+    </Application>
   );
 });
