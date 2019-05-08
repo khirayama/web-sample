@@ -6,14 +6,13 @@ import * as styled from 'styled-components';
 import ReactHelmet from 'react-helmet';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { IntlProvider } from 'react-intl';
 
 import { reducer } from 'client/reducers';
 import { renderFullPage } from 'server/renderFullPage';
 import { Routes } from 'client/presentations/routes/Routes';
 import { ResetStyle } from 'client/presentations/styles/ResetStyle';
 import { GlobalStyle } from 'client/presentations/styles/GlobalStyle';
-import { chooseLocale } from 'client/presentations/locales';
+import { Intl } from 'client/containers/Intl';
 
 const assets = (() => {
   // eslint-disable-next-line node/no-unpublished-require
@@ -40,11 +39,11 @@ export function get(req: express.Request, res: express.Response) {
       <StaticRouter location={req.url} context={context}>
         <ResetStyle />
         <GlobalStyle />
-        <IntlProvider locale={locale} messages={chooseLocale(locale)}>
-          <Provider store={store}>
+        <Provider store={store}>
+          <Intl>
             <Routes />
-          </Provider>
-        </IntlProvider>
+          </Intl>
+        </Provider>
       </StaticRouter>,
     ),
   );

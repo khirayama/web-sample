@@ -3,13 +3,12 @@ import * as ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { IntlProvider } from 'react-intl';
 
 import { reducer } from 'client/reducers';
 import { Routes } from 'client/presentations/routes/Routes';
 import { ResetStyle } from 'client/presentations/styles/ResetStyle';
 import { GlobalStyle } from 'client/presentations/styles/GlobalStyle';
-import { chooseLocale } from 'client/presentations/locales';
+import { Intl } from 'client/containers/Intl';
 
 function extractInitialState() {
   const initialDataElement = window.document.querySelector('#initial-data');
@@ -28,17 +27,15 @@ function extractInitialState() {
 const store = createStore(reducer, extractInitialState());
 
 window.addEventListener('DOMContentLoaded', () => {
-  const locale: string = store.getState().ui.locale;
-
   ReactDOM.hydrate(
     <BrowserRouter>
       <ResetStyle />
       <GlobalStyle />
-      <IntlProvider locale={locale} messages={chooseLocale(locale)}>
-        <Provider store={store}>
+      <Provider store={store}>
+        <Intl>
           <Routes />
-        </Provider>
-      </IntlProvider>
+        </Intl>
+      </Provider>
     </BrowserRouter>,
     window.document.querySelector('#root'),
   );
