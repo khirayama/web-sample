@@ -63,6 +63,9 @@ A. `@loadable/component` がSSRするには [babel plugin](https://www.smooth-co
 Q. *なぜ開発環境に `ts-node` を利用しないのか。*  
 A. 開発には遅すぎました。  
 
+Q. *認証が必要な場合はどうするか。*
+A. 今回のサンプルにこれを具体的に入れるには大きすぎました。このリンク([Redirects(Auth) - React Router: Declarative Routing for React.js](https://reacttraining.com/react-router/web/example/auth-workflow))が大いに参考になると思います。  
+
 ## Refs
 
 - React-Router
@@ -70,6 +73,7 @@ A. 開発には遅すぎました。
   - [Server Rendering - React Router: Declarative Routing for React.js](https://reacttraining.com/react-router/web/guides/server-rendering)
   - [Code Splitting - React Router: Declarative Routing for React.js](https://reacttraining.com/react-router/web/guides/code-splitting)
   - [Redux Integration - React Router: Declarative Routing for React.js](https://reacttraining.com/react-router/web/guides/redux-integration)
+  - [Redirects(Auth) - React Router: Declarative Routing for React.js](https://reacttraining.com/react-router/web/example/auth-workflow)
 - Redux
   - [Getting Started with Redux - Redux](https://redux.js.org/introduction/getting-started)
   - [Usage with React - Redux](https://redux.js.org/basics/usage-with-react)

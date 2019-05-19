@@ -62,6 +62,9 @@ A. `@loadable/component` needs [babel plugin](https://www.smooth-code.com/open-s
 Q. *Why don't I use `ts-node` for development?*  
 A. It is too slow for development.  
 
+Q. *How should I handle auth?*
+A. It get too big as sample. This link([Redirects(Auth) - React Router: Declarative Routing for React.js](https://reacttraining.com/react-router/web/example/auth-workflow)) will help you.  
+
 ## Refs
 
 - React-Router
@@ -69,6 +72,7 @@ A. It is too slow for development.
   - [Server Rendering - React Router: Declarative Routing for React.js](https://reacttraining.com/react-router/web/guides/server-rendering)
   - [Code Splitting - React Router: Declarative Routing for React.js](https://reacttraining.com/react-router/web/guides/code-splitting)
   - [Redux Integration - React Router: Declarative Routing for React.js](https://reacttraining.com/react-router/web/guides/redux-integration)
+  - [Redirects(Auth) - React Router: Declarative Routing for React.js](https://reacttraining.com/react-router/web/example/auth-workflow)
 - Redux
   - [Getting Started with Redux - Redux](https://redux.js.org/introduction/getting-started)
   - [Usage with React - Redux](https://redux.js.org/basics/usage-with-react)
