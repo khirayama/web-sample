@@ -8,6 +8,8 @@
     "npm": "6.7.0"
   },
   "scripts": {
+    "test": "jest",
+    "test:ci": "npm run test && codecov",
     "clean": "rm -rf dist",
     "start": "npm run clean && npm run build:scripts && concurrently 'npm run build:scripts:watch' 'npm run bundle:scripts:watch' 'npm run server:dev'",
     "build": "npm run clean && concurrently 'npm run build:scripts' 'NODE_ENV=production npm run bundle:scripts'",
