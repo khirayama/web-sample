@@ -6,9 +6,10 @@ module.exports = {
     browser: true,
     commonjs: true,
     serviceworker: true,
+    'jest/globals': true,
   },
   extends: ['eslint:recommended', 'plugin:node/recommended', 'plugin:react/recommended', 'plugin:prettier/recommended'],
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'eslint-plugin-jest'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     sourceType: 'module',
