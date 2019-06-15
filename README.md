@@ -14,6 +14,7 @@ It is a sample for web application with recent tech stacks. I want to keep makin
   - react
   - react-router
   - redux
+  - redux-thunk
   - @loadable/component
   - styled-components
   - react-intl
@@ -79,6 +80,7 @@ A. It get too big as sample. This link([Redirects(Auth) - React Router: Declarat
   - [Usage with React Router - Redux](https://redux.js.org/advanced/usage-with-react-router)
   - [Usage With TypeScript - Redux](https://redux.js.org/recipes/usage-with-typescript)
   - [Server Rendering - Redux](https://redux.js.org/recipes/server-rendering)
+  - [Async Actions - Redux](https://redux.js.org/advanced/async-actions#async-actions)
 - Styled Components
   - [Getting Started - styled-components: Basics](https://www.styled-components.com/docs/basics#getting-started)
   - [Server Side Rendering - styled-components: Advanced Usage](https://www.styled-components.com/docs/advanced#server-side-rendering)

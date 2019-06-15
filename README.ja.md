@@ -14,6 +14,7 @@
   - react
   - react-router
   - redux
+  - redux-thunk
   - @loadable/component
   - styled-components
   - react-intl
@@ -66,7 +67,7 @@ A. 開発には遅すぎました。
 Q. *認証が必要な場合はどうするか。*
 A. 今回のサンプルにこれを具体的に入れるには大きすぎました。このリンク([Redirects(Auth) - React Router: Declarative Routing for React.js](https://reacttraining.com/react-router/web/example/auth-workflow))が大いに参考になると思います。  
 
-## Refs
+## 参考
 
 - React-Router
   - [Basic - React Router: Declarative Routing for React.js](https://reacttraining.com/react-router/web/example/basic)
@@ -80,6 +81,7 @@ A. 今回のサンプルにこれを具体的に入れるには大きすぎま�
   - [Usage with React Router - Redux](https://redux.js.org/advanced/usage-with-react-router)
   - [Usage With TypeScript - Redux](https://redux.js.org/recipes/usage-with-typescript)
   - [Server Rendering - Redux](https://redux.js.org/recipes/server-rendering)
+  - [Async Actions - Redux](https://redux.js.org/advanced/async-actions#async-actions)
 - Styled Components
   - [Getting Started - styled-components: Basics](https://www.styled-components.com/docs/basics#getting-started)
   - [Server Side Rendering - styled-components: Advanced Usage](https://www.styled-components.com/docs/advanced#server-side-rendering)
