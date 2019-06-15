@@ -1,5 +1,7 @@
 # Web Sample
 
+[ENGLISH](./README.md)
+
 最近の技術を取り入れたウェブアプリのサンプル実装です。やりすぎることなく、現実的に理解が用意でシンプルなリポジトリ構成を目指しています。
 
 ![Screen Shot](./docs/screenshot.gif)
@@ -64,7 +66,7 @@ A. `@loadable/component` がSSRするには [babel plugin](https://www.smooth-co
 Q. *なぜ開発環境に `ts-node` を利用しないのか。*  
 A. 開発には遅すぎました。  
 
-Q. *認証が必要な場合はどうするか。*
+Q. *認証が必要な場合はどうするか。*  
 A. 今回のサンプルにこれを具体的に入れるには大きすぎました。このリンク([Redirects(Auth) - React Router: Declarative Routing for React.js](https://reacttraining.com/react-router/web/example/auth-workflow))が大いに参考になると思います。  
 
 ## アプリケーションの依存関係

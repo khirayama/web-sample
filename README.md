@@ -1,5 +1,7 @@
 # Web Sample
 
+[日本語](./README.ja.md)
+
 It is a sample for web application with recent tech stacks. I want to keep making this repository simple and easy understanding.
 
 ![Screen Shot](./docs/screenshot.gif)
@@ -63,7 +65,7 @@ A. `@loadable/component` needs [babel plugin](https://www.smooth-code.com/open-s
 Q. *Why don't I use `ts-node` for development?*  
 A. It is too slow for development.  
 
-Q. *How should I handle auth?*
+Q. *How should I handle auth?*  
 A. It get too big as sample. This link([Redirects(Auth) - React Router: Declarative Routing for React.js](https://reacttraining.com/react-router/web/example/auth-workflow)) will help you.  
 
 ## Dependencies of Application
