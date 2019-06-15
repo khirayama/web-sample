@@ -1,6 +1,21 @@
-import { Action } from 'redux';
+import { Action, Dispatch } from 'redux';
+import { ThunkAction, ThunkDispatch } from 'redux-thunk';
 
-export type Actions = Increment | Decrement;
+export interface FetchingCount extends Action<'FETCHING_COUNT'> {}
+
+export const fetchingCount = (): FetchingCount => {
+  return {
+    type: 'FETCHING_COUNT',
+  };
+};
+
+export interface FetchedCount extends Action<'FETCHED_COUNT'> {}
+
+export const fetchedCount = (): FetchedCount => {
+  return {
+    type: 'FETCHED_COUNT',
+  };
+};
 
 export interface Increment extends Action<'INCREMENT'> {}
 

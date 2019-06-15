@@ -2,7 +2,8 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import reduxThunk from 'redux-thunk';
 
 import { reducer } from 'client/reducers';
 import { Routes } from 'client/presentations/routes/Routes';
@@ -24,7 +25,7 @@ function extractInitialState() {
   }
 }
 
-const store = createStore(reducer, extractInitialState());
+const store = createStore(reducer, extractInitialState(), applyMiddleware(reduxThunk));
 
 window.addEventListener('DOMContentLoaded', () => {
   ReactDOM.hydrate(
