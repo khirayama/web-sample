@@ -66,6 +66,10 @@ A. It is too slow for development.
 Q. *How should I handle auth?*
 A. It get too big as sample. This link([Redirects(Auth) - React Router: Declarative Routing for React.js](https://reacttraining.com/react-router/web/example/auth-workflow)) will help you.  
 
+## Dependencies of Application
+
+![Dependencies of Application](./docs/dependencies_of_application.png)
+
 ## Refs
 
 - React-Router

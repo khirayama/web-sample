@@ -67,6 +67,10 @@ A. 開発には遅すぎました。
 Q. *認証が必要な場合はどうするか。*
 A. 今回のサンプルにこれを具体的に入れるには大きすぎました。このリンク([Redirects(Auth) - React Router: Declarative Routing for React.js](https://reacttraining.com/react-router/web/example/auth-workflow))が大いに参考になると思います。  
 
+## アプリケーションの依存関係
+
+![Dependencies of Application](./docs/dependencies_of_application.png)
+
 ## 参考
 
 - React-Router
