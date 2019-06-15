@@ -5,11 +5,10 @@ import loadable from '@loadable/component';
 import { Head } from 'client/presentations/head/Head';
 import { Application } from 'client/presentations/templates/Application';
 
-const LoadableAboutContent = loadable(
-  (): any =>
-    import(/* webpackChunkName: "about" */ 'client/presentations/pages/AboutContent').then(
-      ({ AboutContent }) => AboutContent,
-    ),
+const LoadableAboutContent = loadable((): any =>
+  import(/* webpackChunkName: "about" */ 'client/presentations/pages/AboutContent').then(
+    ({ AboutContent }) => AboutContent,
+  ),
 );
 
 export const About = injectIntl(function(props) {

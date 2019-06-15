@@ -12,7 +12,7 @@ export const asyncIncrement = () => {
       dispatch(fetchedCount());
     });
   };
-}
+};
 
 export const asyncDecrement = () => {
   return (dispatch: ThunkDispatch<{}, {}, Action>) => {
@@ -22,4 +22,4 @@ export const asyncDecrement = () => {
       dispatch(fetchedCount());
     });
   };
-}
+};

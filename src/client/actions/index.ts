@@ -1,5 +1,4 @@
-import { Action, Dispatch } from 'redux';
-import { ThunkAction, ThunkDispatch } from 'redux-thunk';
+import { Action } from 'redux';
 
 export interface FetchingCount extends Action<'FETCHING_COUNT'> {}
 
