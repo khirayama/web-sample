@@ -2,7 +2,6 @@
 import * as http from 'http';
 
 import express from 'express';
-import * as bodyParser from 'body-parser';
 
 import * as renderer from 'server/renderer';
 
@@ -10,8 +9,8 @@ export function runServer() {
   const PORT = process.env.PORT || 3000;
   const app: express.Application = express();
 
-  app.use(bodyParser.urlencoded({ extended: true }));
-  app.use(bodyParser.json());
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: true }));
 
   app.use('/public', express.static('dist/public'));
   app.get('*', renderer.get);
