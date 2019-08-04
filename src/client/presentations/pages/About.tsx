@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { injectIntl } from 'react-intl';
 import loadable from '@loadable/component';
 
-import { Head } from 'client/presentations/head/Head';
+import { Page } from 'client/containers/Page';
 import { Application } from 'client/presentations/templates/Application';
 
 const LoadableAboutContent = loadable((): any =>
@@ -11,16 +10,15 @@ const LoadableAboutContent = loadable((): any =>
   ),
 );
 
-export const About = injectIntl(function(props) {
-  const title: string = props.intl.formatMessage({ id: 'About.Title' });
-  const description: string = props.intl.formatMessage({
-    id: 'About.Description',
-  });
+export const About = () => {
+  const title = { descriptor: 'About.Title' };
+  const description = { descriptor: 'About.Description' };
 
   return (
-    <Application>
-      <Head title={title} description={description} />
-      <LoadableAboutContent />
-    </Application>
+    <Page title={title} description={description}>
+      <Application>
+        <LoadableAboutContent />
+      </Application>
+    </Page>
   );
-});
+};
