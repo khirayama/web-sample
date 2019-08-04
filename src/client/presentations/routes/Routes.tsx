@@ -8,9 +8,9 @@ import { Users } from 'client/presentations/pages/Users';
 export function Routes() {
   return (
     <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/about/" component={About} />
-      <Route exact path="/users/" component={Users} />
+      <Route exact path="/:locale?/about" component={About} />
+      <Route exact path="/:locale?/users" component={Users} />
+      <Route exact path="/:locale?" component={Home} />
     </Switch>
   );
 }
