@@ -4,7 +4,8 @@ export interface State {
     value: number;
   };
   ui: {
-    locale: 'en' | 'ja';
+    locale: string;
+    pathname: string;
   };
 }
 
@@ -15,6 +16,7 @@ export const initialState: State = {
   },
   ui: {
     locale: 'en',
+    pathname: '/',
   },
 };
 
@@ -62,7 +64,17 @@ export function reducer(state = initialState, action: any) {
       return {
         count: state.count,
         ui: {
+          ...state.ui,
           locale: action.payload.locale,
+        },
+      };
+    }
+    case 'SET_PATHNAME': {
+      return {
+        count: state.count,
+        ui: {
+          ...state.ui,
+          pathname: action.payload.pathname,
         },
       };
     }
