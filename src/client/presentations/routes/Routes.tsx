@@ -5,12 +5,33 @@ import { Home } from 'client/presentations/pages/Home';
 import { About } from 'client/presentations/pages/About';
 import { Users } from 'client/presentations/pages/Users';
 
+export const routes = [
+  {
+    exact: true,
+    path: '/:locale?/about',
+    component: About,
+    initializer: null,
+  },
+  {
+    exact: true,
+    path: '/:locale?/users',
+    component: Users,
+    initializer: null,
+  },
+  {
+    exact: true,
+    path: '/:locale?',
+    component: Home,
+    initializer: null,
+  },
+];
+
 export function Routes() {
   return (
     <Switch>
-      <Route exact path="/:locale?/about" component={About} />
-      <Route exact path="/:locale?/users" component={Users} />
-      <Route exact path="/:locale?" component={Home} />
+      {routes.map(route => (
+        <Route key={route.path} exact={route.exact} path={route.path} component={route.component} />
+      ))}
     </Switch>
   );
 }
