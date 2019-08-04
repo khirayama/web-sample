@@ -46,3 +46,18 @@ export const changeLocale = (locale: string): ChangeLocale => {
     },
   };
 };
+
+export interface SetPathname extends Action<'SET_PATHNAME'> {
+  payload: {
+    pathname: string;
+  };
+}
+
+export const setPathname = (pathname: string): SetPathname => {
+  return {
+    type: 'SET_PATHNAME',
+    payload: {
+      pathname,
+    },
+  };
+};
