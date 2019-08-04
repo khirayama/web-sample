@@ -11,6 +11,7 @@ export interface FormattedMessage {
 
 export type Props = {
   locale: string;
+  pathname: string;
   title: FormattedMessage;
   description: FormattedMessage;
   children: React.ReactNode;
