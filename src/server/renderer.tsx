@@ -12,7 +12,6 @@ import { renderFullPage } from 'server/renderFullPage';
 import { Routes } from 'client/presentations/routes/Routes';
 import { ResetStyle } from 'client/presentations/styles/ResetStyle';
 import { GlobalStyle } from 'client/presentations/styles/GlobalStyle';
-import { Intl } from 'client/containers/Intl';
 
 const assets = (() => {
   // eslint-disable-next-line node/no-unpublished-require
@@ -40,9 +39,7 @@ export function get(req: express.Request, res: express.Response) {
         <ResetStyle />
         <GlobalStyle />
         <Provider store={store}>
-          <Intl>
-            <Routes />
-          </Intl>
+          <Routes />
         </Provider>
       </StaticRouter>,
     ),
