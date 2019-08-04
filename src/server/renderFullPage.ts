@@ -1,5 +1,5 @@
 type Params = {
-  locale: 'en' | 'ja';
+  locale: string;
   meta: string;
   assets: Array<string>;
   body: string;
