@@ -13,7 +13,7 @@ export interface Props extends RouteComponentProps<{ locale?: string }> {
 }
 
 const mapStateToProps = (state: State, props: Props) => {
-  const defaultLocale = state.ui.locale;
+  const defaultLocale = 'en';
   const locale = props.match.params.locale || defaultLocale;
 
   let pathname = '/';
