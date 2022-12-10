@@ -67,7 +67,7 @@
   },
   "dependencies": {
     "@loadable/component": "5.10.2",
-    "express": "4.17.1",
+    "express": "4.17.3",
     "history": "4.9.0",
     "react": "16.9.0",
     "react-dom": "16.9.0",
